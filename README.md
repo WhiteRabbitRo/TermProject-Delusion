@@ -2,7 +2,7 @@
 ## "Создание компьютерной игры на движке Unity"
 ### Название игры: "Delusion"
 
-
+[![Documentation](https://codedocs.xyz/WhiteRabbitRo/TermProject-Delusion.svg)](https://codedocs.xyz/WhiteRabbitRo/TermProject-Delusion/)
 
 #### Дерево файлов:
 ```bash
