@@ -6,7 +6,8 @@ using UnityEngine;
 public class theEndController : MonoBehaviour {
 
     [SerializeField]
-    private GameObject theEnd; /// Панель с порталом
+    /// Панель с порталом
+    private GameObject theEnd;
 
     /// Если демон побежден - открыть портал
     void Update()

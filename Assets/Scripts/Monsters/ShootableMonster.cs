@@ -5,16 +5,21 @@ using System.Collections;
 public class ShootableMonster : Monster
 {
     [SerializeField]
-    private float rate = 2.0F; /// время повторения стрельбы
+     /// время повторения стрельбы
+    private float rate = 2.0F;
 
     [SerializeField]
-    private Color bulletColor = Color.white; /// цвет снаряда
+    /// цвет снаряда
+    private Color bulletColor = Color.white;
 
     [SerializeField]
-    private bool direction = true; /// направление снаряда
+    /// направление снаряда
+    private bool direction = true;
 
-    private Bullet bullet; /// объект - пуля (снаряд)
-    public float positionY = 0.5F; /// смещение по Y положения появления пули
+    /// объект - пуля (снаряд)
+    private Bullet bullet;
+    /// смещение по Y положения появления пули
+    public float positionY = 0.5F;
 
     /// Загружаем сохраненный объект "Пуля"
     protected override void Awake()

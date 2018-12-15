@@ -6,18 +6,23 @@ using UnityEngine;
 public class Box : MonoBehaviour {
 
     [SerializeField]
-    private CameraController camera; /// Скрипт главной камеры
+    /// Скрипт главной камеры
+    private CameraController camera;
 
     [SerializeField]
-    private GameObject mainGame; /// Объект с главной игрой
+    /// Объект с главной игрой
+    private GameObject mainGame;
 
     [SerializeField]
-    private GameObject canvasGame; /// Объект с панелью игры "Пазл"
+    /// Объект с панелью игры "Пазл"
+    private GameObject canvasGame;
 
     [SerializeField]
-    private OrnamentManager ornament; /// Мэнэджер игры "Пазл"
+    /// Мэнэджер игры "Пазл"
+    private OrnamentManager ornament;
 
-    public GameObject newInstrument; /// Объект с панелью магического снаряда
+    /// Объект с панелью магического снаряда
+    public GameObject newInstrument;
 
     /// При встрече с персонажем выводим панель с игрой "Пазл", убираем главную игру
     /// После прохождения - возвращаем исходную позицию, выводим панель магического снаряда

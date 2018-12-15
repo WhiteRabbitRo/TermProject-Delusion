@@ -7,10 +7,13 @@ using System.Linq;
 public class MoveableMonster : Monster
 {
     [SerializeField]
-    private float speed = 2.0F; /// Скорость
+    /// Скорость
+    private float speed = 2.0F;
 
-    private Vector3 direction; /// Направление
-    private SpriteRenderer sprite; /// Компонент игрового объекта: спрайт
+    /// Направление
+    private Vector3 direction;
+    /// Компонент игрового объекта: спрайт
+    private SpriteRenderer sprite;
 
     /// Получаем компонент "спрайт"
     protected override void Awake()

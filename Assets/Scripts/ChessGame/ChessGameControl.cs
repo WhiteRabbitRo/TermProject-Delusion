@@ -7,22 +7,31 @@ using UnityEngine.UI;
 /// Класс реализуется алгоритм игры "Пятнашки", вешается на пустой объект
 public class ChessGameControl : MonoBehaviour {
 
-	public GameObject[] _puzzle; /// оригинальный массив
+    /// оригинальный массив
+	public GameObject[] _puzzle;
 
-	public float startPosX = -6f; /// стартовая позиция для первого элемента X
-	public float startPosY = 6f; /// стартовая позиция для первого элемента Y
+    /// стартовая позиция для первого элемента X
+	public float startPosX = -6f;
+
+	/// стартовая позиция для первого элемента Y
+	public float startPosY = 6f;
 
 	/// отступ по Х и Y, рассчитывается в зависимости от размера объекта
 	public float outX = 1.1f; /// отступ X
 	public float outY = 1.1f; /// отступ Y
 
-	public Text _text; /// вывод текстовой информации
-
-	public static int click; /// нажатие на пазл
-	public static GameObject[,] grid; /// сетка
-	public static Vector3[,] position; /// позиция пазла
-	private GameObject[] puzzleRandom; /// массив пазлов
-	public static bool win; /// переменная выигрыша
+    /// вывод текстовой информации
+	public Text _text;
+    /// нажатие на пазл
+	public static int click;
+	/// сетка
+	public static GameObject[,] grid;
+	/// позиция пазла
+	public static Vector3[,] position;
+	/// массив пазлов
+	private GameObject[] puzzleRandom;
+	/// переменная выигрыша
+	public static bool win;
 
     /// На старте - заполняем массив позиций клеток
 	void Start () 

@@ -4,7 +4,8 @@ using System.Collections;
 /// \brief Скрипт кусочка пазла
 public class Puzzle : MonoBehaviour {
 
-	public int ID; /// номер соответствующей "костяшки"
+    /// номер соответствующей "костяшки"
+	public int ID;
 
 	/// Текущая и пустая клетка, меняются местами
 	void ReplaceBlocks(int x, int y, int XX, int YY)

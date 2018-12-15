@@ -6,17 +6,23 @@ using UnityEngine;
 public class Ornament : MonoBehaviour {
 
     [SerializeField]
-    private Transform puzzlePlace; /// Положение пазла
+    /// Положение пазла
+    private Transform puzzlePlace;
 
-    private Vector2 initialPosition; /// Инициализируемое положение фигуры
+    /// Инициализируемое положение фигуры
+    private Vector2 initialPosition;
 
-    private float deltaX, deltaY; /// Допустимое смещение кусочка пазла
+    /// Допустимое смещение кусочка пазла
+    private float deltaX, deltaY;
 
     [HideInInspector]
-    public bool locked; /// Фиксация положения кусочка пазла
+    /// Фиксация положения кусочка пазла
+    public bool locked;
 
-    private Ray ray; /// Луч (для определения положения фиксации пазла)
-    private RaycastHit hit; /// Обнаружение луча
+    /// Луч (для определения положения фиксации пазла)
+    private Ray ray;
+    /// Обнаружение луча
+    private RaycastHit hit;
     private Vector2 rot = new Vector2(0, 0);
 
     /// Запоминаем положение кусочка пазла

@@ -7,15 +7,20 @@ using UnityEngine;
 public class flyPlatform : MonoBehaviour {
 
     [SerializeField]
-    private Lever1 lever; /// Связанный с платформой рычаг
+    /// Связанный с платформой рычаг
+    private Lever1 lever;
 
     [HideInInspector]
-    public bool i; /// Переменная для направления движения
+    /// Переменная для направления движения
+    public bool i;
 
-    public Transform target1; /// Первый целевой объект
-    public Transform target2; /// Второй целевой объект
+    /// Первый целевой объект
+    public Transform target1;
+    /// Второй целевой объект
+    public Transform target2;
 
-    public float speed = 4.0F; /// Скорость полета платформы
+    /// Скорость полета платформы
+    public float speed = 4.0F;
 
     /// Направление вправо
     void Start () {

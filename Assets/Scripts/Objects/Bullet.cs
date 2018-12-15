@@ -4,12 +4,15 @@ using System.Collections;
 /// \brief Скрипт магического снаряда (пули)
 public class Bullet : MonoBehaviour
 {
-    private GameObject parent; /// Объект, выпустивший снаряд
+    /// Объект, выпустивший снаряд
+    private GameObject parent;
     public GameObject Parent { set { parent = value; }  get { return parent; } }
 
-    private float speed = 10.0F; /// Скорость полета пули
+    /// Скорость полета пули
+    private float speed = 10.0F;
     [HideInInspector]
-    public Vector3 direction; /// Направление движения пули
+    /// Направление движения пули
+    public Vector3 direction;
     public Vector3 Direction { set { direction = value; } }
 
     /// Цвет пули
@@ -18,7 +21,8 @@ public class Bullet : MonoBehaviour
         set { sprite.color = value; }
     }
 
-    private SpriteRenderer sprite; /// Компонент игрового объекта - спрайт
+    /// Компонент игрового объекта - спрайт
+    private SpriteRenderer sprite;
 
     /// Получаем компонент - спрайт
     private void Awake()

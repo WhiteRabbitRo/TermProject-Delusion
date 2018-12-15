@@ -4,9 +4,11 @@ using System.Collections;
 /// \brief Панель здоровья
 public class LivesBar : MonoBehaviour
 {
-    private Transform[] hearts = new Transform[5]; /// Массив очков здоровья
+    /// Массив очков здоровья
+    private Transform[] hearts = new Transform[5];
 
-    private Character character; /// Игрок
+    /// Игрок
+    private Character character;
 
     /// Заполняем массив количеством очков здоровья у игрока
     private void Awake()

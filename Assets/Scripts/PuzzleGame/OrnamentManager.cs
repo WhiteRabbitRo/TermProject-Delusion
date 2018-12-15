@@ -6,17 +6,23 @@ using UnityEngine;
 public class OrnamentManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject mainGame; /// Объект с главной игрой
+    /// Объект с главной игрой
+    private GameObject mainGame;
 
     [SerializeField]
-    private GameObject canvasGame; /// Объект с игрой "Пазл"
+    /// Объект с игрой "Пазл"
+    private GameObject canvasGame;
 
-    public GameObject panel; /// Панель с пазлом
-    public Ornament[] _puzzle; /// Массив кусочков пазла
+    /// Панель с пазлом
+    public GameObject panel;
+    /// Массив кусочков пазла
+    public Ornament[] _puzzle;
 
-    public bool wellDone = false; /// Переменная выигрыша
+    /// Переменная выигрыша
+    public bool wellDone = false;
 
-    private int num; /// Переменная проверки сборки пазла
+    /// Переменная проверки сборки пазла
+    private int num;
 
     void Start () {
 		

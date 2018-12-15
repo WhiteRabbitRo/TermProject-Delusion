@@ -8,13 +8,17 @@ using System.Linq;
 public class Character : Unit
 {
     [SerializeField]
-    private int lives = 5; /// Количество жизней
+    /// Количество жизней
+    private int lives = 5;
 
     [SerializeField]
-    private string nameOfLevel = "Level"; /// Название текущего уровня (для респавна)
+    /// Название текущего уровня (для респавна)
+    private string nameOfLevel = "Level";
 
-    public bool canMakeMagic = false; /// Проверка на возможность создания магического снаряда
-    public bool canBeProtected = false; /// Проверка на возможность создания магического щита
+    /// Проверка на возможность создания магического снаряда
+    public bool canMakeMagic = false;
+    /// Проверка на возможность создания магического щита
+    public bool canBeProtected = false;
 
     public int Lives
     {
@@ -25,26 +29,36 @@ public class Character : Unit
             livesBar.Refresh();
         }
     }
-    private LivesBar livesBar; /// Панель очков здоровья
+    /// Панель очков здоровья
+    private LivesBar livesBar;
 
-    public float speed = 3.0F; /// Скорость персонажа
+    /// Скорость персонажа
+    public float speed = 3.0F;
     [SerializeField]
-    private float jumpForce = 15.0F; /// Сила прыжка
+    /// Сила прыжка
+    private float jumpForce = 15.0F;
 
-    private bool isGrounded = false; /// Проверка на нахождение на земле
+    /// Проверка на нахождение на земле
+    private bool isGrounded = false;
 
-    private Bullet bullet; /// Компонент "Пуля"
+    /// Компонент "Пуля"
+    private Bullet bullet;
 
-    private CharState State /// Анимация персонажа
+    /// Анимация персонажа
+    private CharState State
     {
         get { return (CharState)animator.GetInteger("State"); }
         set { animator.SetInteger("State", (int)value); }
     }
 
-    new private Rigidbody2D rigidbody; /// Компонент "Физическое тело"
-    private Animator animator; /// Компонент "Аниматор"
-    private SpriteRenderer sprite; /// Компонент "Спрайт"
-    private Shield shield; /// Компонент "Щит"
+    /// Компонент "Физическое тело"
+    new private Rigidbody2D rigidbody;
+    /// Компонент "Аниматор"
+    private Animator animator;
+    /// Компонент "Спрайт"
+    private SpriteRenderer sprite;
+    /// Компонент "Щит"
+    private Shield shield;
     private AudioSource[] audio;
 
     /// Получаем компоненты из игрового объекта
@@ -188,7 +202,10 @@ public class Character : Unit
 /// Анимация
 public enum CharState
 {
-    Idle, /// < Бездействие
-    Run, /// < Бег
-    Jump /// < Прыжок
+    /// < Бездействие
+    Idle,
+    /// < Бег
+    Run,
+    /// < Прыжок
+    Jump
 }

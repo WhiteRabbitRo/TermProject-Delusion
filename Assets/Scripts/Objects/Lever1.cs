@@ -6,9 +6,11 @@ using UnityEngine;
 public class Lever1 : MonoBehaviour {
 
     [SerializeField]
-    private GameObject platform; /// Связанная с рычагом платформа
+    /// Связанная с рычагом платформа
+    private GameObject platform;
 
-    public bool flyPlatform = false; /// Переменная активации рычага
+    /// Переменная активации рычага
+    public bool flyPlatform = false;
 
     /// При встрече с игроком активируется рычаг
 	private void OnTriggerEnter2D (Collider2D collider)

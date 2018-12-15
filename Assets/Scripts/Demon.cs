@@ -6,28 +6,40 @@ using UnityEngine;
 public class Demon : Monster {
 
     [SerializeField]
-    private int lives = 150; /// Количество очков здоровья
+    /// Количество очков здоровья
+    private int lives = 150;
 
     [SerializeField]
-    private float acceleration = 0.1f; /// Ускорение
+    /// Ускорение
+    private float acceleration = 0.1f;
 
     [SerializeField]
-    private float rate = 2.0F; /// Время повторения стрельбы магическими снарядами
-    public float speed = 7.0F; /// Скорость
-    private bool tired = false; /// Проверка на бездействие
-    public static bool oneThread = false; /// Проверка на смерть
+    /// Время повторения стрельбы магическими снарядами
+    private float rate = 2.0F;
+    /// Скорость
+    public float speed = 7.0F;
+    /// Проверка на бездействие
+    private bool tired = false;
+    /// Проверка на смерть
+    public static bool oneThread = false;
 
-    private Vector3 direction; /// Направление движения
-    private Vector3 firstPos; /// Начальная позиция
+    /// Направление движения
+    private Vector3 direction;
+    /// Начальная позиция
+    private Vector3 firstPos;
 
     [SerializeField]
-    private Transform target; /// Позиция игрока
+    /// Позиция игрока
+    private Transform target;
 
-    private Bullet bullet; /// Компонент "Пуля"
+    /// Компонент "Пуля"
+    private Bullet bullet;
+
     [SerializeField]
     private Color bulletColor = Color.red;
 
-    private float time = 0; /// Время для проверки на бездействие
+    /// Время для проверки на бездействие
+    private float time = 0;
 
     /// Находим положение игрока, загружаем объект "Пуля", направление - вправо
     protected override void Awake()

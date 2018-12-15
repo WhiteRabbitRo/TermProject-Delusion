@@ -8,12 +8,16 @@ using UnityEngine.SceneManagement;
 public class Portal : MonoBehaviour {
 
     [SerializeField]
-    private string nameOfLevel = "Level"; /// Название загружаемого уровня
+    /// Название загружаемого уровня
+    private string nameOfLevel = "Level";
 
-    private Animator animator; /// Компонент с анимацией
-    private SpriteRenderer sprite; /// Компонент "спрайт"
+    /// Компонент с анимацией
+    private Animator animator;
+    /// Компонент "спрайт"
+    private SpriteRenderer sprite;
 
-    private PortalState State /// Мэнэджер анимации
+    /// Мэнэджер анимации
+    private PortalState State
     {
         get { return (PortalState)animator.GetInteger("State") + 1; }
         set { animator.SetInteger("State", (int)value); }
@@ -52,7 +56,10 @@ public class Portal : MonoBehaviour {
 /// Стадии анимации портала
 public enum PortalState
 {
-    MeetPlayer, /// < Встреча с игроком
-    WaitPlayer, /// < Ожидание игрока
-    BringPlayer /// < Перенос игрока
+    /// < Встреча с игроком
+    MeetPlayer,
+    /// < Ожидание игрока
+    WaitPlayer,
+    /// < Перенос игрока
+    BringPlayer
 }
