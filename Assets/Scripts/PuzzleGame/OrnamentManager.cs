@@ -2,27 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// \brief Игра "Пазл" (мэнэджер игры)
 public class OrnamentManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject mainGame;
+    private GameObject mainGame; /// Объект с главной игрой
 
     [SerializeField]
-    private GameObject canvasGame;
+    private GameObject canvasGame; /// Объект с игрой "Пазл"
 
-    public GameObject panel;
-    public Ornament[] _puzzle;
+    public GameObject panel; /// Панель с пазлом
+    public Ornament[] _puzzle; /// Массив кусочков пазла
 
-    public bool wellDone = false;
+    public bool wellDone = false; /// Переменная выигрыша
 
-    private int num;
+    private int num; /// Переменная проверки сборки пазла
 
-    // Use this for initialization
     void Start () {
 		
 	}
-	
-	// Update is called once per frame
+
+	/// Проверяем все ли кусочки на своих местах
 	void Update () {
         for (int x = 0; x < _puzzle.Length; ++x)
         {

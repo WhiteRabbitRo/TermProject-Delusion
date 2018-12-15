@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// \brief Рычаг
 public class Lever1 : MonoBehaviour {
 
     [SerializeField]
-    private GameObject platform;
+    private GameObject platform; /// Связанная с рычагом платформа
 
-    public bool flyPlatform = false;
+    public bool flyPlatform = false; /// Переменная активации рычага
 
+    /// При встрече с игроком активируется рычаг
 	private void OnTriggerEnter2D (Collider2D collider)
     {
         Character character = collider.GetComponent<Character>();
@@ -21,9 +23,4 @@ public class Lever1 : MonoBehaviour {
             flyPlatform = !flyPlatform;
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

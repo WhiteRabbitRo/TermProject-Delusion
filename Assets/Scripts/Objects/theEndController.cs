@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// \brief Контроллера конца игры
 public class theEndController : MonoBehaviour {
 
     [SerializeField]
-    private GameObject theEnd;
+    private GameObject theEnd; /// Панель с порталом
 
+    /// Если демон побежден - открыть портал
     void Update()
     {
         if (Demon.oneThread)

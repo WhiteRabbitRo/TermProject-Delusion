@@ -2,32 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// \brief Скрипт босса "Демона"
 public class Demon : Monster {
 
     [SerializeField]
-    private int lives = 150;
+    private int lives = 150; /// Количество очков здоровья
 
     [SerializeField]
-    private float acceleration = 0.1f;
+    private float acceleration = 0.1f; /// Ускорение
 
     [SerializeField]
-    private float rate = 2.0F;
-    public float speed = 7.0F;
-    private bool tired = false;
-    public static bool oneThread = false;
+    private float rate = 2.0F; /// Время повторения стрельбы магическими снарядами
+    public float speed = 7.0F; /// Скорость
+    private bool tired = false; /// Проверка на бездействие
+    public static bool oneThread = false; /// Проверка на смерть
 
-    private Vector3 direction;
-    private Vector3 firstPos;
+    private Vector3 direction; /// Направление движения
+    private Vector3 firstPos; /// Начальная позиция
 
     [SerializeField]
-    private Transform target;
+    private Transform target; /// Позиция игрока
 
-    private Bullet bullet;
+    private Bullet bullet; /// Компонент "Пуля"
     [SerializeField]
     private Color bulletColor = Color.red;
 
-    private float time = 0;
+    private float time = 0; /// Время для проверки на бездействие
 
+    /// Находим положение игрока, загружаем объект "Пуля", направление - вправо
     protected override void Awake()
     {
         if (!target) target = FindObjectOfType<Character>().transform;
@@ -36,11 +38,13 @@ public class Demon : Monster {
         direction = transform.right;
     }
 
+    /// Запускаем повторение функции стрельбы
     protected override void Start()
     {
         InvokeRepeating("Shoot", rate, rate);
     }
 
+    /// Проверяем на бездействие (каждые 20 секунд стремится за игроком) и функция движения
     void Update()
     {
         GoToPlayer();
@@ -49,12 +53,14 @@ public class Demon : Monster {
             Move();
     }
 
+    /// Движение объекта
     void Move()
     {
         transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, 
             speed * Time.deltaTime + acceleration * Time.deltaTime * Time.deltaTime / 2);
     }
 
+    /// Функция стрельбы (если не в бездействии)
     void Shoot()
     {
         if (!tired)
@@ -67,6 +73,7 @@ public class Demon : Monster {
         }
     }
 
+    /// Функция преследования персонажа (бездействия)
     void GoToPlayer()
     {
         time += Time.deltaTime;
@@ -94,12 +101,14 @@ public class Demon : Monster {
         }
     }
 
+    /// При столкновении со стеной - поменять направление
     void OnCollisionEnter2D (Collision2D col)
     {
         if (col.gameObject.tag == "Wall")
             direction *= -1f;
     }
 
+    /// При столкновении с игроком - игрок получает урон, при столкновении с пулей - объект получает урон
     protected override void OnTriggerEnter2D(Collider2D collider)
     {
         Unit unit = collider.GetComponent<Unit>();
@@ -118,6 +127,7 @@ public class Demon : Monster {
         }
     }
 
+    /// Функция получения урона (если очков здоровья ноль - упасть на землю, умереть, открыть портал)
     public override void ReceiveDamage()
     {
         --lives;

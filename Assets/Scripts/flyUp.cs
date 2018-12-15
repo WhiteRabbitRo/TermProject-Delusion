@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// \warning Не используется
 public class flyUp : MonoBehaviour {
 
 	// Use this for initialization

@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// \brief Панель здоровья
 public class LivesBar : MonoBehaviour
 {
-    private Transform[] hearts = new Transform[5];
+    private Transform[] hearts = new Transform[5]; /// Массив очков здоровья
 
-    private Character character;
+    private Character character; /// Игрок
 
-
+    /// Заполняем массив количеством очков здоровья у игрока
     private void Awake()
     {
         character = FindObjectOfType<Character>();
@@ -19,6 +20,7 @@ public class LivesBar : MonoBehaviour
         }
     }
 
+    /// Обновлене панели
     public void Refresh()
     {
         for (int i = 0; i < hearts.Length; i++)

@@ -3,26 +3,28 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// \brief Контроллер игры "Пятнашки"
+/// Класс реализуется алгоритм игры "Пятнашки", вешается на пустой объект
 public class ChessGameControl : MonoBehaviour {
 
-	public GameObject[] _puzzle; // оригинальный массив
+	public GameObject[] _puzzle; /// оригинальный массив
 
-	// стартовая позиция для первого элемента
-	public float startPosX = -6f;
-	public float startPosY = 6f;
+	public float startPosX = -6f; /// стартовая позиция для первого элемента X
+	public float startPosY = 6f; /// стартовая позиция для первого элемента Y
 
-	// отступ по Х и Y, рассчитывается в зависимости от размера объекта
-	public float outX = 1.1f;
-	public float outY = 1.1f;
+	/// отступ по Х и Y, рассчитывается в зависимости от размера объекта
+	public float outX = 1.1f; /// отступ X
+	public float outY = 1.1f; /// отступ Y
 
-	public Text _text; // вывод текстовой информации
+	public Text _text; /// вывод текстовой информации
 
-	public static int click;
-	public static GameObject[,] grid;
-	public static Vector3[,] position;
-	private GameObject[] puzzleRandom;
-	public static bool win;
+	public static int click; /// нажатие на пазл
+	public static GameObject[,] grid; /// сетка
+	public static Vector3[,] position; /// позиция пазла
+	private GameObject[] puzzleRandom; /// массив пазлов
+	public static bool win; /// переменная выигрыша
 
+    /// На старте - заполняем массив позиций клеток
 	void Start () 
 	{
 		puzzleRandom = new GameObject[_puzzle.Length];
@@ -44,6 +46,8 @@ public class ChessGameControl : MonoBehaviour {
         if (!PlayerPrefs.HasKey("Puzzle")) StartNewGame(); else Load();
     }
 
+    /// Функция загрузки сохраненной игры
+    /// \warning Не используется
     void Load()
     {
         string[] content = PlayerPrefs.GetString("Puzzle").Split(new char[] { '|' });
@@ -72,6 +76,7 @@ public class ChessGameControl : MonoBehaviour {
         }
     }
 
+    /// Нахождение пазла по индексу
     int FindPuzzle(int index)
     {
         int j = 0;
@@ -83,6 +88,7 @@ public class ChessGameControl : MonoBehaviour {
         return -1;
     }
 
+    /// Парсинг информации из текста
     int Parse(string text)
     {
         int value;
@@ -90,6 +96,7 @@ public class ChessGameControl : MonoBehaviour {
         return -1;
     }
 
+    /// Начать новую игру
     public void StartNewGame()
 	{
 		win = false;
@@ -97,11 +104,13 @@ public class ChessGameControl : MonoBehaviour {
 		Debug.Log("New Game");
 	}
 
+    /// Проверка на выигрыш
     void Update()
     {
         GameFinish();
     }
-		
+
+	/// Создать новое поле пазлов
 	void CreatePuzzle()
 	{
 		if(transform.childCount > 0)
@@ -139,6 +148,7 @@ public class ChessGameControl : MonoBehaviour {
 		}
 	}
 
+    /// Проверка на окончание игры
 	static public void GameFinish()
 	{
 		int i = 1;
@@ -164,7 +174,7 @@ public class ChessGameControl : MonoBehaviour {
 		}
 	}
 
-	// создание временного массива, с случайно перемешанными элементами
+	/// Создание временного массива, с случайно перемешанными элементами
 	void RandomPuzzle()
 	{
 		int[] tmp = new int[_puzzle.Length];
@@ -186,6 +196,7 @@ public class ChessGameControl : MonoBehaviour {
 		CreatePuzzle();
 	}
 
+    /// \warning Не используется (для загрузки)
     void LateUpdate()
     {
         if (!win)

@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// \brief Скрипт кусочка пазла
 public class Puzzle : MonoBehaviour {
 
-	public int ID; // номер должен соответствовать данной "костяшки"
+	public int ID; /// номер соответствующей "костяшки"
 
-	// текущая и пустая клетка, меняются местами
+	/// Текущая и пустая клетка, меняются местами
 	void ReplaceBlocks(int x, int y, int XX, int YY)
 	{
 		ChessGameControl.grid[x,y].transform.position = ChessGameControl.position[XX,YY];
@@ -14,6 +15,7 @@ public class Puzzle : MonoBehaviour {
 		ChessGameControl.GameFinish();
 	}
 
+    /// Перемещение по нажатию кнопки
 	void OnMouseDown()
 	{
 		for(int y = 0; y < 4; y++)

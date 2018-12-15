@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// Запомнить положение игрока (для загрузки сцены после уровня с головоломкой)
 public class StartPosition : MonoBehaviour {
 
     [SerializeField]

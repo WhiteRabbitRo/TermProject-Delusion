@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
+
+/// \brief Улучшенная версия контроллера камеры
+/// \warning Не используется
 public class CameraFollow2D : MonoBehaviour {
 
 	public float damping = 1.5f;

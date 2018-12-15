@@ -1,30 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// \brief Стреляющий враг
 public class ShootableMonster : Monster
 {
     [SerializeField]
-    private float rate = 2.0F;
+    private float rate = 2.0F; /// время повторения стрельбы
 
     [SerializeField]
-    private Color bulletColor = Color.white;
+    private Color bulletColor = Color.white; /// цвет снаряда
 
     [SerializeField]
-    private bool direction = true;
+    private bool direction = true; /// направление снаряда
 
-    private Bullet bullet;
-    public float positionY = 0.5F;
+    private Bullet bullet; /// объект - пуля (снаряд)
+    public float positionY = 0.5F; /// смещение по Y положения появления пули
 
+    /// Загружаем сохраненный объект "Пуля"
     protected override void Awake()
     {
         bullet = Resources.Load<Bullet>("Bullet");
     }
 
+    /// Повторяем функцию стрельбы в соответствии с временем повторения
     protected override void Start()
     {
         InvokeRepeating("Shoot", rate, rate);
     }
 
+    /// Функция стрельбы пулями
     private void Shoot()
     {
         Vector3 position = transform.position;
@@ -39,6 +43,7 @@ public class ShootableMonster : Monster
         newBullet.Color = bulletColor;
     }
 
+    /// При встрече с игроком - игрок получаем урон
     protected override void OnTriggerEnter2D(Collider2D collider)
     {
         Unit unit = collider.GetComponent<Unit>();

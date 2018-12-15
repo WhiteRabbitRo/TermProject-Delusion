@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// \warning Не используется
 public abstract class MovingObject : MonoBehaviour {
 
     public float moveTime = 0.1f;

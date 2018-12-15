@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// \brief Игра "Пазл" (скрипт кусочка пазла)
 public class Ornament : MonoBehaviour {
 
     [SerializeField]
-    private Transform puzzlePlace;
+    private Transform puzzlePlace; /// Положение пазла
 
-    private Vector2 initialPosition;
+    private Vector2 initialPosition; /// Инициализируемое положение фигуры
 
-    private float deltaX, deltaY;
+    private float deltaX, deltaY; /// Допустимое смещение кусочка пазла
 
     [HideInInspector]
-    public bool locked;
+    public bool locked; /// Фиксация положения кусочка пазла
 
-    private Ray ray;
-    private RaycastHit hit;
+    private Ray ray; /// Луч (для определения положения фиксации пазла)
+    private RaycastHit hit; /// Обнаружение луча
     private Vector2 rot = new Vector2(0, 0);
 
+    /// Запоминаем положение кусочка пазла
 	void Start ()
     {
         initialPosition = transform.position;
@@ -28,6 +30,7 @@ public class Ornament : MonoBehaviour {
 
 	}
 
+    /// При нажатии на кусочек - увеличиваем размер
     void OnMouseDown()
     {
         if (!locked)
@@ -37,6 +40,7 @@ public class Ornament : MonoBehaviour {
         }
     }
 
+    /// При перемещении мыши - перемещаем кусочек пазла
     void OnMouseDrag()
     {
         if (!locked)
@@ -46,6 +50,7 @@ public class Ornament : MonoBehaviour {
         }
     }
 
+    /// При отпускании мыши - проверка на фиксацию с правильным положением кусочка пазла
     void OnMouseUp()
     {
         if (Mathf.Abs(transform.position.x - puzzlePlace.position.x) <= 0.5f &&

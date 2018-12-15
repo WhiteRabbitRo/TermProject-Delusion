@@ -3,17 +3,18 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Linq;
 
+/// \brief Скрипт игрока
 [System.Serializable]
 public class Character : Unit
 {
     [SerializeField]
-    private int lives = 5;
+    private int lives = 5; /// Количество жизней
 
     [SerializeField]
-    private string nameOfLevel = "Level";
+    private string nameOfLevel = "Level"; /// Название текущего уровня (для респавна)
 
-    public bool canMakeMagic = false;
-    public bool canBeProtected = false;
+    public bool canMakeMagic = false; /// Проверка на возможность создания магического снаряда
+    public bool canBeProtected = false; /// Проверка на возможность создания магического щита
 
     public int Lives
     {
@@ -24,28 +25,29 @@ public class Character : Unit
             livesBar.Refresh();
         }
     }
-    private LivesBar livesBar;
+    private LivesBar livesBar; /// Панель очков здоровья
 
-    public float speed = 3.0F;
+    public float speed = 3.0F; /// Скорость персонажа
     [SerializeField]
-    private float jumpForce = 15.0F;
+    private float jumpForce = 15.0F; /// Сила прыжка
 
-    private bool isGrounded = false;
+    private bool isGrounded = false; /// Проверка на нахождение на земле
 
-    private Bullet bullet;
+    private Bullet bullet; /// Компонент "Пуля"
 
-    private CharState State
+    private CharState State /// Анимация персонажа
     {
         get { return (CharState)animator.GetInteger("State"); }
         set { animator.SetInteger("State", (int)value); }
     }
 
-    new private Rigidbody2D rigidbody;
-    private Animator animator;
-    private SpriteRenderer sprite;
-    private Shield shield;
+    new private Rigidbody2D rigidbody; /// Компонент "Физическое тело"
+    private Animator animator; /// Компонент "Аниматор"
+    private SpriteRenderer sprite; /// Компонент "Спрайт"
+    private Shield shield; /// Компонент "Щит"
     private AudioSource[] audio;
 
+    /// Получаем компоненты из игрового объекта
     private void Awake()
     {
         livesBar = FindObjectOfType<LivesBar>();
@@ -58,6 +60,7 @@ public class Character : Unit
         shield = Resources.Load<Shield>("Shield");
     }
 
+    /// Проверяем нахождение игрока на земле (для прыжка) и падение за пределы карты
     private void FixedUpdate()
     {
         CheckGround();
@@ -66,6 +69,7 @@ public class Character : Unit
             SceneManager.LoadScene(nameOfLevel);
     }
 
+    /// Активация действий и соответствующих анимаций
     private void Update()
     {
         if (isGrounded) State = CharState.Idle;
@@ -83,6 +87,7 @@ public class Character : Unit
         if (!Input.GetButton("Horizontal")) isFlyPlatform();
     }
 
+    /// Функция бега
     private void Run()
     {
 
@@ -98,11 +103,13 @@ public class Character : Unit
         }
     }
 
+    /// Функция прыжка
     private void Jump()
     {
         rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
 
+    /// Функция стрельбы
     private void Shoot()
     {
         Vector3 position = transform.position; position.y += 0.8F;
@@ -112,6 +119,7 @@ public class Character : Unit
         newBullet.Direction = newBullet.transform.right * (sprite.flipX ? -1.0F : 1.0F);
     }
 
+    /// Функция щита
     private void Protect()
     {
         Vector3 position = transform.position;
@@ -119,6 +127,7 @@ public class Character : Unit
         Shield newShield = Instantiate(shield, position, shield.transform.rotation) as Shield;
     }
 
+    /// Получение урона (уменьшение очков здоровья на -1, при нуле - респавн)
     public override void ReceiveDamage()
     {
         Lives--;
@@ -132,6 +141,7 @@ public class Character : Unit
         Debug.Log(lives);
     }
 
+    /// Функция проверка нахождения игрока на земле
     private void CheckGround()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.3F);
@@ -142,6 +152,7 @@ public class Character : Unit
         if (!isGrounded) State = CharState.Jump;
     }
 
+    /// Функция параллельного перемещения игрока на летящей платформе
     private void isFlyPlatform()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.1F);
@@ -163,6 +174,7 @@ public class Character : Unit
         }
     }
 
+    /// При встрече с пулей (не от игрока) - получение урона
     private void OnTriggerEnter2D(Collider2D collider)
     {
         Bullet bullet = collider.gameObject.GetComponent<Bullet>();
@@ -173,10 +185,10 @@ public class Character : Unit
     }
 }
 
-
+/// Анимация
 public enum CharState
 {
-    Idle,
-    Run,
-    Jump
+    Idle, /// < Бездействие
+    Run, /// < Бег
+    Jump /// < Прыжок
 }

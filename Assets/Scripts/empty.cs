@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// Пустой объект для двигающихся врагов
 public class empty : MonoBehaviour {
 
 	// Use this for initialization

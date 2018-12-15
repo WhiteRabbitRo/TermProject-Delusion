@@ -2,29 +2,36 @@
 using System.Collections;
 using System.Linq;
 
+
+/// \brief Скрипт двигающегося врага
 public class MoveableMonster : Monster
 {
     [SerializeField]
-    private float speed = 2.0F;
+    private float speed = 2.0F; /// Скорость
 
-    private Vector3 direction;
-    private SpriteRenderer sprite;
+    private Vector3 direction; /// Направление
+    private SpriteRenderer sprite; /// Компонент игрового объекта: спрайт
 
+    /// Получаем компонент "спрайт"
     protected override void Awake()
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
+    /// Первоначальное направление движения - вправо
     protected override void Start()
     {
         direction = transform.right;
     }
 
+    /// Двигаемся по-кадрово
     protected override void Update()
     {
         Move();
     }
 
+    /// При прыжке игрока сверху - получаем урон, при встрече с пулей - получаем урон
+    /// при встрече с "пустым объектом" - разворачиваемся
     protected override void OnTriggerEnter2D(Collider2D collider)
     {
         Unit unit = collider.GetComponent<Unit>();
@@ -50,6 +57,7 @@ public class MoveableMonster : Monster
         }
     }
 
+    /// Движение объекта
     private void Move()
     {
         transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);

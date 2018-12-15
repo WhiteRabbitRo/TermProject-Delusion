@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// \brief Триггер двери
+/// \warning Не используется
 public class DoorTrigger : MonoBehaviour {
     [SerializeField]
     private string name = "ChessGame";

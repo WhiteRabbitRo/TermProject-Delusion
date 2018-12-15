@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// \warning Не используется
 public class IcePlatform : MonoBehaviour {
 
     public float acceleration = 1.0F;
