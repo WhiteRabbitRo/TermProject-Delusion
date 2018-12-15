@@ -1,0 +1,89 @@
+\hypertarget{class_moving_object}{}\section{Moving\+Object Class Reference}
+\label{class_moving_object}\index{Moving\+Object@{Moving\+Object}}
+Inheritance diagram for Moving\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_moving_object}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_moving_object_a2596eb0312a148176541ac08fb18b173}{move\+Time}} = 0.\+1f
+\item 
+Layer\+Mask \mbox{\hyperlink{class_moving_object_add4cf20e336559d38cc6a57763775e36}{blocking\+Layer}}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_moving_object_a2b6026a8e7e4313764cb876fd99ae1cd}{Start}} ()
+\item 
+bool \mbox{\hyperlink{class_moving_object_a0a7da7115f17445fcfe898d3ce16b85b}{Move}} (int x\+Dir, int y\+Dir, out Raycast\+Hit2D hit)
+\item 
+I\+Enumerator \mbox{\hyperlink{class_moving_object_ab5b0553c2da577c976c7f1416ff6605a}{Smooth\+Movement}} (Vector3 end)
+\item 
+virtual void \mbox{\hyperlink{class_moving_object_a593c3433bf277e5fe6b80ab1b475aad4}{Attempt\+Move$<$ T $>$}} (int x\+Dir, int y\+Dir)
+\item 
+abstract void \mbox{\hyperlink{class_moving_object_af20de314364d109abfad1fe0f15d4732}{On\+Cant\+Move$<$ T $>$}} (T component)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_moving_object_a593c3433bf277e5fe6b80ab1b475aad4}\label{class_moving_object_a593c3433bf277e5fe6b80ab1b475aad4}} 
+\index{Moving\+Object@{Moving\+Object}!Attempt\+Move$<$ T $>$@{Attempt\+Move$<$ T $>$}}
+\index{Attempt\+Move$<$ T $>$@{Attempt\+Move$<$ T $>$}!Moving\+Object@{Moving\+Object}}
+\subsubsection{\texorpdfstring{Attempt\+Move$<$ T $>$()}{AttemptMove< T >()}}
+{\footnotesize\ttfamily virtual void Moving\+Object.\+Attempt\+Move$<$ T $>$ (\begin{DoxyParamCaption}\item[{int}]{x\+Dir,  }\item[{int}]{y\+Dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Component}]\end{description}
+\end{Desc}
+\mbox{\Hypertarget{class_moving_object_a0a7da7115f17445fcfe898d3ce16b85b}\label{class_moving_object_a0a7da7115f17445fcfe898d3ce16b85b}} 
+\index{Moving\+Object@{Moving\+Object}!Move@{Move}}
+\index{Move@{Move}!Moving\+Object@{Moving\+Object}}
+\subsubsection{\texorpdfstring{Move()}{Move()}}
+{\footnotesize\ttfamily bool Moving\+Object.\+Move (\begin{DoxyParamCaption}\item[{int}]{x\+Dir,  }\item[{int}]{y\+Dir,  }\item[{out Raycast\+Hit2D}]{hit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_moving_object_af20de314364d109abfad1fe0f15d4732}\label{class_moving_object_af20de314364d109abfad1fe0f15d4732}} 
+\index{Moving\+Object@{Moving\+Object}!On\+Cant\+Move$<$ T $>$@{On\+Cant\+Move$<$ T $>$}}
+\index{On\+Cant\+Move$<$ T $>$@{On\+Cant\+Move$<$ T $>$}!Moving\+Object@{Moving\+Object}}
+\subsubsection{\texorpdfstring{On\+Cant\+Move$<$ T $>$()}{OnCantMove< T >()}}
+{\footnotesize\ttfamily abstract void Moving\+Object.\+On\+Cant\+Move$<$ T $>$ (\begin{DoxyParamCaption}\item[{T}]{component }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Component}]\end{description}
+\end{Desc}
+\mbox{\Hypertarget{class_moving_object_ab5b0553c2da577c976c7f1416ff6605a}\label{class_moving_object_ab5b0553c2da577c976c7f1416ff6605a}} 
+\index{Moving\+Object@{Moving\+Object}!Smooth\+Movement@{Smooth\+Movement}}
+\index{Smooth\+Movement@{Smooth\+Movement}!Moving\+Object@{Moving\+Object}}
+\subsubsection{\texorpdfstring{Smooth\+Movement()}{SmoothMovement()}}
+{\footnotesize\ttfamily I\+Enumerator Moving\+Object.\+Smooth\+Movement (\begin{DoxyParamCaption}\item[{Vector3}]{end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_moving_object_a2b6026a8e7e4313764cb876fd99ae1cd}\label{class_moving_object_a2b6026a8e7e4313764cb876fd99ae1cd}} 
+\index{Moving\+Object@{Moving\+Object}!Start@{Start}}
+\index{Start@{Start}!Moving\+Object@{Moving\+Object}}
+\subsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily virtual void Moving\+Object.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_moving_object_add4cf20e336559d38cc6a57763775e36}\label{class_moving_object_add4cf20e336559d38cc6a57763775e36}} 
+\index{Moving\+Object@{Moving\+Object}!blocking\+Layer@{blocking\+Layer}}
+\index{blocking\+Layer@{blocking\+Layer}!Moving\+Object@{Moving\+Object}}
+\subsubsection{\texorpdfstring{blocking\+Layer}{blockingLayer}}
+{\footnotesize\ttfamily Layer\+Mask Moving\+Object.\+blocking\+Layer}
+
+\mbox{\Hypertarget{class_moving_object_a2596eb0312a148176541ac08fb18b173}\label{class_moving_object_a2596eb0312a148176541ac08fb18b173}} 
+\index{Moving\+Object@{Moving\+Object}!move\+Time@{move\+Time}}
+\index{move\+Time@{move\+Time}!Moving\+Object@{Moving\+Object}}
+\subsubsection{\texorpdfstring{move\+Time}{moveTime}}
+{\footnotesize\ttfamily float Moving\+Object.\+move\+Time = 0.\+1f}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Objects/\mbox{\hyperlink{_moving_object_8cs}{Moving\+Object.\+cs}}\end{DoxyCompactItemize}
